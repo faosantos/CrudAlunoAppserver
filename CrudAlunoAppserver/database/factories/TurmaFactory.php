@@ -1,5 +1,5 @@
 <?php
-use App\Vehicle;
+use App\Turma;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\DB;
 
@@ -23,15 +23,15 @@ function getPlate($n) {
     return $randomString; 
 }
 
-$factory->define(Vehicle::class, function (Faker $faker) {
-    $clientIds = DB::table('clients')->pluck('id');
+$factory->define(Turma::class, function (Faker $faker) {
+    $turmaIds = DB::table('turmas')->pluck('id');
     return [
-        'placa' => getPlate(7),
-        'client_id' => $faker->randomElement($clientIds),
-        'brand' => array_random(['Chery', 'Nissan', 'Fiat', 'Chevrolett', 'Ford', 'wolksvagem']),
-        'model' => array_random(['Kadett', 'Monza', 'Fox','Passat', 'Onix', 'Uno', 'Corsa', 'Vectra', 'hilux', 'S10']),
-        'color' => $faker-> safeColorName,
-        'type' =>  array_random(['car', 'bike', 'truck', 'utility']),
-        'year'  => $faker->year($max = 'now')
+        'num_aluno' => getPlate(7),
+        'aluno_id' => $faker->randomElement($turmaIds),
+        'turma' => array_random(['12a', '12b', '72a', '72b', '52a', '52b']),
+        'serie' => array_random(['5ºsérie', '6ºsérie', '7ºsérie','8ºsérie', '4ºsérie', '3ºsérie', '2ºsérie', '1ºsérie'])
+        // 'color' => $faker-> safeColorName,
+        // 'type' =>  array_random(['car', 'bike', 'truck', 'utility']),
+        // 'year'  => $faker->year($max = 'now')
     ];
 });

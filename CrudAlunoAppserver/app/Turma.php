@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Schedule extends Model
+class Turma extends Model
 {
-    protected $table = 'schedules';
+    protected $table = 'turmas';
     
 }

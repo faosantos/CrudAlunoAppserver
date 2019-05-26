@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
+use App\Aluno;
 use Illuminate\Http\Request;
 use Validator;
 use Auth;
 
-class ClientController extends Controller
+class AlunoController extends Controller
 {
     public function create()
     {
         if(Auth::check()){
             $err=['err'=>[]];
-            return view('dash.client.form', $err);
+            return view('dash.aluno.form', $err);
         }else{
             return redirect('/');
         }
@@ -25,7 +25,7 @@ class ClientController extends Controller
             'phone_a' => 'required',
             'email'=>'required|unique:clients',
             'address'=>'required',
-            'cpf_cnpj'=>'required',
+            'cpf_rg'=>'required',
             'type' => 'required'
         ];
         $messages = [
@@ -43,20 +43,20 @@ class ClientController extends Controller
             'phone_b' => $request->phone_b ? $request->phone_b : null,
             'email' => $request->email,
             'address' => $request->address,
-            'cpf_cnpj' => $request->cpf_cnpj,
-            'type' => $request->type === 'Física' ? 'f' : 'j'
+            'cpf_rg' => $request->cpf_rg,
+            'type' => $request->type === 'Tarde' ? 'm' : 't'
         ];
-        $user = Client::create($user);
+        $user = Aluno::create($user);
         if($user){
             return redirect('/?success=true');
         }else{
-            return redirect('/client/add?success=false&msg=Algo deu errado, confirme os campos e tente novamente');
+            return redirect('/aluno/add?success=false&msg=Algo deu errado, confirme os campos e tente novamente');
         }
     }
     public function destroy($id)
     {
-        $client = Client::findOrFail($id);
-        $confirm = $client->delete();
+        $aluno = Aluno::findOrFail($id);
+        $confirm = $aluno->delete();
         if($confirm)
             return redirect('/?success=2');
         else
@@ -64,26 +64,26 @@ class ClientController extends Controller
     }
     public function show($id)
     {
-        $client = Client::findOrFail($id);
-        $vehicles = $client->vehicles()->get();
-        return view('dash.client.view', ['client'=> $client, 'vehicles'=>$vehicles]);
+        $aluno = Aluno::findOrFail($id);
+        $vehicles = $aluno->vehicles()->get();
+        return view('dash.aluno.view', ['aluno'=> $aluno, 'vehicles'=>$vehicles]);
     }
     public function update(Request $request, $id)
     {
-        $client = Client::findOrFail($id);
-        $client->name = $request->name;
-        $client->phone_a = $request->phone_a;
-        $client->phone_b = $request->phone_b;
-        $client->email = $request->email;
-        $client->address = $request->address;
-        $client->cpf_cnpj = $request->cpf_cnpj;
-        $client->type = $request->type === 'Física' ? 'f' : 'j';
-        $success = $client->save();
+        $aluno = Aluno::findOrFail($id);
+        $aluno->name = $request->name;
+        $aluno->phone_a = $request->phone_a;
+        $aluno->phone_b = $request->phone_b;
+        $aluno->email = $request->email;
+        $aluno->address = $request->address;
+        $aluno->cpf_rg = $request->cpf_rg;
+        $aluno->type = $request->type === 'Tarde' ? 'm' : 't';
+        $success = $aluno->save();
 
         if($success){
-            return redirect('/client/' . $id . '?success=true');
+            return redirect('/aluno/' . $id . '?success=true');
         }else{
-            return redirect('/client/' . $id . '?success=false');
+            return redirect('/aluno/' . $id . '?success=false');
         }
     }
 }

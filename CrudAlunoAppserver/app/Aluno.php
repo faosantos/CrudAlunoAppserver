@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class Aluno extends Model
 {
-    protected $tablename = "clients";
+    protected $tablename = "aluno";
     protected $fillable = [
-        'name', 'phone_a', 'phone_b', 'email', 'address', 'type', 'cpf_cnpj'
+        'name', 'phone_a', 'phone_b', 'email', 'address', 'type', 'cpf_rg'
     ];
     
     public function vehicles()
@@ -16,6 +16,6 @@ class Client extends Model
         return $this->hasMany('App\Vehicle', 'client_id');
     }
     public function type(){
-        return $this->type == 'j' ? 'Jurídica' : 'Física';
+        return $this->type == 't' ? 'Manhã' : 'Tarde';
     }
 }
