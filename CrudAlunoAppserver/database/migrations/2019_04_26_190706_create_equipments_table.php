@@ -22,12 +22,12 @@ class CreateEquipmentsTable extends Migration
             $table->string('apn');
             $table->string('client_id');
             $table->string('operator');
-            $table->unsignedInteger('vehicle_id');
+            $table->unsignedInteger('turma_id');
             $table->timestamps();
         });
         Schema::table('equipments', function (Blueprint $table) {
-            $table->foreign('vehicle_id')
-                ->references('id')->on('vehicles')
+            $table->foreign('turma_id')
+                ->references('id')->on('turmas')
                 ->onDelete('cascade');
         });
     }

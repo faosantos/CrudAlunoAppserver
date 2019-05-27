@@ -1,20 +1,20 @@
 @extends('layouts.dash')
 @section('content')
-    @include('dash.client.modal')
+    @include('dash.aluno.modal')
     <div id="content-wrapper">
         <div class="container-fluid">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     Painel de controle
                 </li>
-                <li class="breadcrumb-item active">Clientes</li>
+                <li class="breadcrumb-item active">Aluno</li>
             </ol>
 
             <div class="card mb-3">
                 <div class="card-header" style="display:flex; justify-content: space-around;">
                     <div>
                         <i class="fas fa-table"></i>
-                        Tabela de clientes
+                        Tabela de alunos
                     </div>
                     <div>
                         <a href="/client/add" class="btn btn-outline-success">
@@ -38,13 +38,13 @@
                     @if(array_key_exists('success', $_GET) && $_GET['success'] == 'true')
                         <div class="my-2">
                             <div class="alert alert-success">
-                                Cliente criado com sucesso!
+                                Aluno criado com sucesso!
                             </div>
                         </div>
                         @elseif(array_key_exists('success', $_GET) && $_GET['success'] == '2')
                         <div class="my-2">
                             <div class="alert alert-success">
-                                Cliente excluído  com secesso!
+                                Aluno excluído  com secesso!
                             </div>
                         </div>
                     @endif
@@ -56,13 +56,13 @@
                                     <th>Nome</th>
                                     <th>Telefone</th>
                                     <th>Endereço</th>
-                                    <th>CPF/CNPJ</th>
+                                    <th>Turno</th>
                                     <th>Tipo</th>
                                     <th>Opções</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($clients as $item)
+                                @forelse($alunos as $item)
                                     <tr>
                                         <td title="{{$item->id}}"">{{$item->id}}</td>
                                         <td title="{{$item->name}}">
@@ -70,7 +70,7 @@
                                         </td>
                                         <td title="{{$item->phone_a}}">{{$item->phone_a}}</td>
                                         <td title="{{$item->address}}">{{$item->address}}</td>
-                                        <td title="{{$item->cpf_cnpj}}">{{$item->cpf_cnpj}}</td>
+                                        <td title="{{$item->turno}}">{{$item->turno}}</td>
                                         <td title="{{$item->type()}}">{{$item->type()}}</td>
                                         <td class="dropdown">
                                             <button
@@ -83,7 +83,7 @@
                                                 <i class="fa fa-user-cog"></i>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="drop-menu-{{$item->id}}">
-                                                <a class="dropdown-item" href="/client/{{$item->id}}">
+                                                <a class="dropdown-item" href="/aluno/{{$item->id}}">
                                                     <i class="fa fa-eye"></i>
                                                     Ver Mais
                                                 </a>
@@ -93,7 +93,7 @@
                                                 </button>
                                                 <a class="dropdown-item text-success" href="/veiculo/add/{{$item->id}}">
                                                     <i class="fa fa-plus"></i>
-                                                    Adicionar Veículo
+                                                    Adicionar Turma
                                                 </a>
                                             </div>
                                         </td>
@@ -101,14 +101,14 @@
                                     @empty
                                         <tr>
                                             <td colspan="7">
-                                                <span>Nenhum cliente encontrado</span>
+                                                <span>Nenhum aluno encontrado</span>
                                             </td>
                                         </tr>
                                 @endforelse
                             </tbody>
                         </table>
-                        @if ($clients instanceof \Illuminate\Pagination\LengthAwarePaginator)
-                            {{ $clients->links() }}
+                        @if ($alunos instanceof \Illuminate\Pagination\LengthAwarePaginator)
+                            {{ $alunos->links() }}
                         @endif
                         
                     </div>
@@ -139,7 +139,7 @@
     });
     function deleteClient(){
         console.log('called delete for:' + curId);
-        window.location.replace('/client/delete/'+curId);
+        window.location.replace('/aluno/delete/'+curId);
     }
 </script>
 @endsection

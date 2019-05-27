@@ -3,13 +3,13 @@
     <li class="nav-item active">
         <a class="nav-link" href="/">
             <i class="fas fa-fw fa-users"></i>
-            <span>Clientes</span>
+            <span>Alunos</span>
         </a>
     </li>
     <li class="nav-item active">
-        <a href="/veiculos" class="nav-link">
+        <a href="/turmas" class="nav-link">
             <i class="fas fa-fw fa-car-alt"></i>
-            <span>Veículos</span>
+            <span>Turmas</span>
         </a>
     </li>
     <li class="nav-item active">

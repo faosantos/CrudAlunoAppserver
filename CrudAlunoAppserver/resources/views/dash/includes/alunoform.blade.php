@@ -58,10 +58,10 @@
 	@endif
 </div>
 <div class="form-group">
-	<label for="cpf_cnpj"><span id="place">CPF</span> <span style="color: red;">*</span></label>
-	<input type="text" name="cpf_cnpj" required class="form-control" placeholder="000.000.000-00" id="cpf_cnpj">
-	@if($err && array_key_exists('cpf_cnpj', $err))
-		@foreach($err['cpf_cnpj'] as $item)
+	<label for="turma"><span id="place">CPF</span> <span style="color: red;">*</span></label>
+	<input type="text" name="turma" required class="form-control" placeholder="manhã" id="turma">
+	@if($err && array_key_exists('turma', $err))
+		@foreach($err['turma'] as $item)
 			<small class="text-danger">{{$item}}</small>
 		@endforeach
 	@endif

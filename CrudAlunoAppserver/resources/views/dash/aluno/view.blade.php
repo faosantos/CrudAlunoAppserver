@@ -1,7 +1,7 @@
 
 @extends('layouts.dash')
 @section('content')
-@include('dash.client.modal')
+@include('dash.aluno.modal')
 <div id="content-wrapper" class="bg-light">
     <div class="container-fluid">
         @if(array_key_exists('success', $_GET) && $_GET['success'] == 'true')
@@ -16,10 +16,10 @@
                 
                 <div class="card">
                     <div class="card-header">
-                        <label>Cliente - {{$client->name}}</label>
+                        <label>aluno - {{$aluno->name}}</label>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="/client/update/{{$client->id}}">
+                        <form method="post" action="/aluno/update/{{$aluno->id}}">
                             @csrf
                             <div>
                                 <div class="form-group">
@@ -28,7 +28,7 @@
                                         type="text" 
                                         name="name"
                                         class="form-control"
-                                        value="{{$client->name}}"
+                                        value="{{$aluno->name}}"
                                         required
                                     >
                                 </div>
@@ -41,7 +41,7 @@
                                         name="phone_a"
                                         id="phone_a"
                                         class="form-control"
-                                        value="{{$client->phone_a}}"
+                                        value="{{$aluno->phone_a}}"
                                         required
                                     />
                                 </div>
@@ -54,7 +54,7 @@
                                         id="phone_b"
                                         name="phone_b"
                                         class="form-control"
-                                        value="{{$client->phone_b}}"
+                                        value="{{$aluno->phone_b}}"
                                         required
                                     />
                                  </div>
@@ -64,23 +64,23 @@
                                     <label for="email">E-mail</label>
                                     <input type="text" name="email"
                                         class="form-control"
-                                        value="{{$client->email}}"
+                                        value="{{$aluno->email}}"
                                         required>
                                 </div>
                             </div>
                             <div>
                                 <div class="form-group">
-                                    @if($client->type == 'f')
-                                    <label for="cpf_cnpj">CPF</label>
+                                    @if($aluno->type == 't')
+                                    <label for="turno">manhã</label>
                                     @else
-                                    <label for="cpf_cnpj">CNPJ</label>
+                                    <label for="turno">Tarde</label>
                                     @endif
                                     <input 
                                         type="text"
-                                        id="cpf_cnpj"
-                                        name="cpf_cnpj"
+                                        id="turno"
+                                        name="turno"
                                         class="form-control"
-                                        value="{{$client->cpf_cnpj}}"
+                                        value="{{$aluno->turno}}"
                                         required
                                     />
                                 </div>
@@ -93,7 +93,7 @@
                                         id="address"
                                         name="address"
                                         class="form-control"
-                                        value="{{$client->address}}"
+                                        value="{{$aluno->address}}"
                                         required
                                     />
                                 </div>
@@ -102,7 +102,7 @@
                                 <button type="submit" class="btn btn-outline-warning">
                                     <i class="fa fa-edit"></i> Editar
                                 </button>
-                                <button onclick="callDelete({{$client->id}})" type="button" class="btn btn-outline-danger">
+                                <button onclick="callDelete({{$aluno->id}})" type="button" class="btn btn-outline-danger">
                                     <i class="fa fa-user-minus"></i> Deletar
                                 </button>
                             </div>
@@ -113,15 +113,15 @@
             <div class="col-md-4 mr-auto mb-5">
                 <div class="card">
                     <div class="card-header">
-                        <label>Cliente - {{$client->name}}</label>
+                        <label>Aluno - {{$aluno->name}}</label>
                     </div>
                     <div class="card-body">
-                        @forelse ($vehicles as $item)
-                            <p>Placa do veículo: <a href="/veiculo/{{$item->id}}">{{$item->placa}}</a></p>
+                        @forelse ($turmas as $item)
+                            <p>Identificação do aluno: <a href="/turma/{{$item->id}}">{{$item->num_aluno}}</a></p>
                         @empty
                             <p></p>
                         @endforelse
-                        <a href="/veiculo/add/{{$client->id}}" class="btn btn-outline-success">
+                        <a href="/turma/add/{{$aluno->id}}" class="btn btn-outline-success">
                             <i class="fa fa-plus"></i>
                         </a>
                     </div>
@@ -141,7 +141,7 @@
 @endsection
 @section('script')
 <script>
-    var curId, type = "{{$client->type}}";
+    var curId, type = "{{$aluno->type}}";
     function callDelete(id){
         curId = id;
         $('#modal').modal('show');
@@ -151,9 +151,9 @@
         curId = null;
         console.log(curId)
     });
-    function deleteClient(){
+    function deleteAluno(){
         console.log('called delete for:' + curId);
-        window.location.replace('/client/delete/'+curId);
+        window.location.replace('/aluno/delete/'+curId);
     }
     $('#phone_a').on('keydown', ()=>{
         $('#phone_a').mask('(00) 00000-0000');
@@ -161,11 +161,11 @@
     $('#phone_b').on('keydown', ()=>{
         $('#phone_b').mask('(00) 00000-0000');
     });
-    $('#cpf_cnpj').on('keydown', ()=>{
+    $('#turno').on('keydown', ()=>{
         if(type == 'f'){
-            $('#cpf_cnpj').mask('000.000.000-00', {reverse: true});
+            $('#turno').mask('Manhã', {reverse: true});
         }else{
-            $('#cpf_cnpj').mask('00.000.000/0000-00', {reverse: true});   
+            $('#turno').mask('Tarde', {reverse: true});   
         }
     });
 </script>

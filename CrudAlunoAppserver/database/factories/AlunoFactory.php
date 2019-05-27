@@ -22,7 +22,8 @@ $factory->define(Aluno::class, function (Faker $faker) {
         'phone_b' => $faker->e164PhoneNumber,
         'email' => $faker->unique()->safeEmail,
         'address' => $faker->streetAddress,
-        'cpf_rg' => "000.000.000-00",
+        // 'turno' => "000.000.000-00",
+        'turno' => array_random(['Manhã', 'Tarde']),
         'type' => $faker->randomElement(['m', 't']),
     ];
 });

@@ -1,32 +1,32 @@
 <div class="col-sm-12 col-md-6">
 	<div class="form-group">
-		<label for="placa">Placa<span style="color: red;">*</span></label>
-		<input type="text" maxlength="7" class="form-control" required name="placa" id="placa" placeholder="Digite a placa do veículo">
-		@if($err && array_key_exists('placa', $err))
-			@foreach ($err['placa'] as $item)
+		<label for="num_aluno">Número do Aluno<span style="color: red;">*</span></label>
+		<input type="text" maxlength="7" class="form-control" required name="num_aluno" id="num_aluno" placeholder="Digite o número do aluno">
+		@if($err && array_key_exists('num_aluno', $err))
+			@foreach ($err['num_aluno'] as $item)
 				<small class="text-danger">{{$item}}</small>
 			@endforeach
 		@endif
 	</div>
 	<div class="form-group">
-		<label for="brand">Marca<span style="color: red;">*</span></label>
-		<input type="text" maxlength="50" class="form-control" required name="brand" id="brand" placeholder="Digite a marca do veículo">
-		@if($err && array_key_exists('brand', $err))
-			@foreach ($err['brand'] as $item)
+		<label for="turma">Turma<span style="color: red;">*</span></label>
+		<input type="text" maxlength="50" class="form-control" required name="turma" id="turma" placeholder="Digite a turma do Aluno">
+		@if($err && array_key_exists('turma', $err))
+			@foreach ($err['turma'] as $item)
 				<small class="text-danger">{{$item}}</small>
 			@endforeach
 		@endif
 	</div>
 	<div class="form-group">
-		<label for="model">Modelo</label>
-		<input type="text" maxlength="50" class="form-control" required name="model" id="model" placeholder="Digite o modelo do veículo">
-		@if($err && array_key_exists('model', $err))
-			@foreach ($err['model'] as $item)
+		<label for="serie">Série</label>
+		<input type="text" maxlength="50" class="form-control" required name="serie" id="serie" placeholder="Digite a série do Aluno">
+		@if($err && array_key_exists('serie', $err))
+			@foreach ($err['serie'] as $item)
 				<small class="text-danger">{{$item}}</small>
 			@endforeach
 		@endif
 	</div>
-	<div class="form-group">
+	{{-- <div class="form-group">
 		<label for="color">Cor<span style="color: red;">*</span></label>
 		<input type="text" maxlength="50" class="form-control" required name="color" id="color" placeholder="Digite a cor do veículo">
 		@if($err && array_key_exists('color', $err))
@@ -58,8 +58,10 @@
 			@endforeach
 		@endif
 	</div>
-</div>
-<div class="col-sm-12 col-md-6">
+</div> --}}
+
+//parte referente ao equipamento
+{{-- <div class="col-sm-12 col-md-6">
 	<div class="form-group">
 		<label for="serial_num">Número de série do equipamento<span style="color: red;">*</span></label>
 		<input type="text" class="form-control" name="serial_num" id="serial_num"  placeholder="Digite o número de serie do equipamento">
@@ -113,5 +115,5 @@
 				<small class="text-danger">{{$item}}</small>
 			@endforeach
 		@endif
-	</div>
+	</div> --}}
 </div>

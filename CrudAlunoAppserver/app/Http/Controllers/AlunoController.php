@@ -23,9 +23,9 @@ class AlunoController extends Controller
         $valid = [
             'name'=> 'required|string',
             'phone_a' => 'required',
-            'email'=>'required|unique:clients',
+            'email'=>'required|unique:alunos',
             'address'=>'required',
-            'cpf_rg'=>'required',
+            'turno'=>'required',
             'type' => 'required'
         ];
         $messages = [
@@ -35,7 +35,7 @@ class AlunoController extends Controller
         $validator = Validator::make($request->all(), $valid, $messages);
         if ($validator->fails()) {
             $err = ['err' => $validator->errors()->toArray()];
-            return view('dash.client.form', $err);
+            return view('dash.aluno.form', $err);
         }
         $user = [
             'name' => $request->name,
@@ -43,7 +43,7 @@ class AlunoController extends Controller
             'phone_b' => $request->phone_b ? $request->phone_b : null,
             'email' => $request->email,
             'address' => $request->address,
-            'cpf_rg' => $request->cpf_rg,
+            'turno' => $request->cpf_rg,
             'type' => $request->type === 'Tarde' ? 'm' : 't'
         ];
         $user = Aluno::create($user);
@@ -66,7 +66,7 @@ class AlunoController extends Controller
     {
         $aluno = Aluno::findOrFail($id);
         $vehicles = $aluno->vehicles()->get();
-        return view('dash.aluno.view', ['aluno'=> $aluno, 'vehicles'=>$vehicles]);
+        return view('dash.aluno.view', ['aluno'=> $aluno, 'turmas'=>$turmas]);
     }
     public function update(Request $request, $id)
     {
@@ -76,7 +76,7 @@ class AlunoController extends Controller
         $aluno->phone_b = $request->phone_b;
         $aluno->email = $request->email;
         $aluno->address = $request->address;
-        $aluno->cpf_rg = $request->cpf_rg;
+        $aluno->turno = $request->turno;
         $aluno->type = $request->type === 'Tarde' ? 'm' : 't';
         $success = $aluno->save();
 

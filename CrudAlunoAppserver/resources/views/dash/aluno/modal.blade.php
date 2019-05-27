@@ -8,12 +8,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                Tem certeza de que deseja excluir este cliente?
-                Isto irá apagar todos os dados vinculados ao cliente
+                Tem certeza de que deseja excluir este aluno?
+                Isto irá apagar todos os dados vinculados ao aluno
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button onclick="deleteClient()" class="btn btn-danger">Ok</button>
+                <button onclick="deleteAluno()" class="btn btn-danger">Ok</button>
             </div>
         </div>
     </div>

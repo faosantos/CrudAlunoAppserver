@@ -17,27 +17,27 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/create-user', 'UserController@store');
     Route::get('/delete-user/{id}', 'UserController@destroy');
 
-    Route::get('/veiculos/{user_id?}', 'HomeController@vehicles');
-    Route::get('/equipamentos/{vehicle_id?}', 'HomeController@equipments');
+    Route::get('/turmas/{user_id?}', 'HomeController@turmas');
+    Route::get('/equipamentos/{turma_id?}', 'HomeController@equipments');
     
-    Route::get('/client/add', 'ClientController@create');
-    Route::get('client/{id}', 'ClientController@show');
-    Route::get('client/delete/{id}', 'ClientController@destroy');
-    Route::post('/client/add', 'ClientController@store');
-    Route::post('/client/update/{id}', 'ClientController@update');
+    Route::get('/aluno/add', 'AlunoController@create');
+    Route::get('aluno/{id}', 'AlunoController@show');
+    Route::get('aluno/delete/{id}', 'AlunoController@destroy');
+    Route::post('/aluno/add', 'AlunoController@store');
+    Route::post('/aluno/update/{id}', 'AlunoController@update');
 
-    Route::get('/veiculo/{id}', 'VehicleController@show');
-    Route::get('/veiculo/add/{user_id}', 'VehicleController@create');
-    Route::get('/veiculo/delete/{id}', 'VehicleController@destroy');
-    Route::get('/editar-veiculo/{id}', 'VehicleController@edit');
-    Route::post('/veiculo/add/{user_id}', 'VehicleController@store');
-    Route::post('/veiculo-update/{id}', 'VehicleController@update');
+    Route::get('/turma/{id}', 'TurmaController@show');
+    Route::get('/turma/add/{user_id}', 'TurmaController@create');
+    Route::get('/turma/delete/{id}', 'TurmaController@destroy');
+    Route::get('/editar-turma/{id}', 'TurmaController@edit');
+    Route::post('/turma/add/{user_id}', 'TurmaController@store');
+    Route::post('/turma-update/{id}', 'TurmaController@update');
     
-    Route::get('/equipamento/{vehicle_id}', 'EquipmentController@create');
-    Route::post('/equipamento/{vehicle_id}', 'EquipmentController@store');
+    Route::get('/equipamento/{turma_id}', 'EquipmentController@create');
+    Route::post('/equipamento/{turma_id}', 'EquipmentController@store');
 
-    Route::post('/search/client', 'HomeController@findClient');
-    Route::post('/search/vehicle', 'HomeController@findVehicle');
+    Route::post('/search/aluno', 'HomeController@findAluno');
+    Route::post('/search/turma', 'HomeController@findTurma');
 
     Route::get('/agenda', 'ScheduleController@index');
 });

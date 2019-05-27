@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ClientsTableSeeder extends Seeder
+class AlunosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,9 +12,9 @@ class ClientsTableSeeder extends Seeder
     public function run()
     {
         factory(App\Aluno::class, 30)->create()->each(function($aluno){
-            $aluno->vehicles()
+            $aluno->turmas()
             ->save(
-                factory(App\Vehicle::class)->make()
+                factory(App\Turma::class)->make()
             );
         });
     }

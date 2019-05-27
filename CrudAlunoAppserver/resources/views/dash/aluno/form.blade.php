@@ -6,9 +6,9 @@
                 <div class="card ml-auto mr-auto mb-3">
                     <div class="card-header"> Adicionar Cliente </div>
                     <div class="card-body">
-                        <form method="POST" action="/client/add">
+                        <form method="POST" action="/aluno/add">
                             @csrf
-                            @include('dash.includes.clientform')
+                            @include('dash.includes.alunoform')
                             <button class="btn btn-outline-success btn-block" type="submit"> Salvar </button>
                         </form>
                     </div>
@@ -37,21 +37,21 @@
         $('#phone_b').on('keydown', ()=>{
             $('#phone_b').mask('(00) 00000-0000');
         });
-        $('#cpf_cnpj').on('keydown', ()=>{
-            if(type == 'f'){
-                $('#cpf_cnpj').mask('000.000.000-00', {reverse: true});
+        $('#turno').on('keydown', ()=>{
+            if(type == 't'){
+                $('#turno').mask('Manhã', {reverse: true});
             }else{
-                $('#cpf_cnpj').mask('00.000.000/0000-00', {reverse: true});   
+                $('#turno').mask('Tarde', {reverse: true});   
             }
         });
         function change(e){
-            type = e.value == 'Jurídica' ? 'j' : 'f';
-            if(type == 'j'){
-                $('#place').html('CNPJ');
-                $('#cpf_cnpj').attr('placeholder', '00.000.000./0001-00');
+            type = e.value == 'Manhã' ? 'm' : 't';
+            if(type == 'm'){
+                $('#place').html('Tarde');
+                $('#turno').attr('placeholder', 'Tarde');
             }else{
-                $('#place').html('CPF');
-                $('#cpf_cnpj').attr('placeholder', '000.000.000-00');
+                $('#place').html('Manhã');
+                $('#turno').attr('placeholder', 'Manhã');
             }
         }
     </script>

@@ -1,19 +1,19 @@
 @extends('layouts.dash')
 @section('content')
-    @include('dash.vehicles.modal')
+    @include('dash.turmas.modal')
     <div id="content-wrapper">
         <div class="container-fluid">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     Painel de controle
                 </li>
-                <li class="breadcrumb-item active">Veículos</li>
+                <li class="breadcrumb-item active">Turma</li>
             </ol>
             <div class="card mb-3">
                 <div class="card-header">
                     <div>
                         <i class="fas fa-table"></i>
-                        Tabela de veículos
+                        Tabela de Turmas
                     </div>
                     <form action="/search/vehicle" method="POST" style="max-widht:150px;">
                         <div class="input-group mb-3">
@@ -32,12 +32,12 @@
                         @switch($_GET['success'])
                             @case('true')
                                 <div class="my-1">
-                                    <div class="alert alert-success">Veículo excluído com sucesso!</div>
+                                    <div class="alert alert-success">Turma excluída com sucesso!</div>
                                 </div>
                                 @break
                             @case('2')
                                 <div class="my-1">
-                                    <div class="alert alert-success">Veículo criado com sucesso!</div>
+                                    <div class="alert alert-success">Turma criada com sucesso!</div>
                                 </div>
                                 @break
                         @endswitch
@@ -47,30 +47,25 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Placa</th>
-                                    <th>Marca</th>
-                                    <th>Modelo</th>
-                                    <th>Cor</th>
-                                    <th>Ano</th>
-                                    <th>Modelo do Equipamento</th>
-                                    <th>Cliente</th>
+                                    <th>Número do aluno</th>
+                                    <th>Turma</th>
+                                    <th>Série</th>
+                                    <th>Aluno</th>
                                     <th>Opções</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($vehicles as $item)
+                                @forelse($turmas as $item)
                                     <tr>
                                         <td>{{$item->id}}</td>
-                                        <td>{{$item->placa}}</td>
-                                        <td>{{$item->brand}}</td>
-                                        <td>{{$item->model}}</td>
-                                        <td>{{$item->color}}</td>
-                                        <td>{{$item->year}}</td>
+                                        <td>{{$item->num_aluno}}</td>
+                                        <td>{{$item->turma}}</td>
+                                        <td>{{$item->serie}}</td>
                                         <td>
-                                            <a href="/veiculo/{{$item->id}}">{{$item->equipment['chip_num']}}</a>
+                                            <a href="/turma/{{$item->id}}">{{$item->equipment['chip_num']}}</a>
                                         </td>
                                         <td>
-                                            <a href="/client/{{$item->owner->id}}">{{$item->owner->name}}</a>
+                                            <a href="/aluno/{{$item->owner->id}}">{{$item->owner->name}}</a>
                                         </td>
                                         <td class="dropdown">
                                             <button
@@ -83,11 +78,11 @@
                                                 <i class="fa fa-cog"></i>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="drop-menu-{{$item->id}}">
-                                                <a class="dropdown-item" href="/veiculo/{{$item->id}}">
+                                                <a class="dropdown-item" href="/turma/{{$item->id}}">
                                                     <i class="fa fa-eye"></i>
                                                     Ver Mais
                                                 </a>
-                                                <a class="dropdown-item text-warning" href="/editar-veiculo/{{$item->id}}">
+                                                <a class="dropdown-item text-warning" href="/editar-turma/{{$item->id}}">
                                                     <i class="fa fa-edit"></i>
                                                     Editar
                                                 </a>
@@ -101,14 +96,14 @@
                                     @empty
                                         <tr>
                                             <td colspan="9">
-                                                <span>Nenhum veículo encontrado</span>
+                                                <span>Nenhumaturma encontrada</span>
                                             </td>
                                         </tr>
                                 @endforelse
                             </tbody>
                         </table>
-                        @if($vehicles instanceof \Illuminate\Pagination\LengthAwarePaginator)
-                            {{$vehicles->links()}}
+                        @if($turmas instanceof \Illuminate\Pagination\LengthAwarePaginator)
+                            {{$turmas->links()}}
                         @endif
                 </div>
                 </div>
@@ -140,9 +135,9 @@
         curId = null;
         console.log(curId)
     });
-    function deleteVehicle(){
+    function deleteTurma(){
         console.log('called delete for:' + curId);
-        window.location.replace('/veiculo/delete/'+curId);
+        window.location.replace('/turma/delete/'+curId);
     }
 </script>
 @endsection

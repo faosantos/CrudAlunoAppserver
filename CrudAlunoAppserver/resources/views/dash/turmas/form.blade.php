@@ -5,12 +5,12 @@
             <div class="row">
             <div class="col-12 col-sm-12 col-md-10 col-lg-9 ml-auto mr-auto">
                 <div class="card mb-3">
-                    <div class="card-header"> Adicionar Veiculo </div>
+                    <div class="card-header"> Adicionar Turma </div>
                     <div class="card-body">
-                        <form method="POST" action="/veiculo/add/{{$client}}">
+                        <form method="POST" action="/turma/add/{{$turma}}">
                             @csrf
                             <div class="row">
-                                @include('dash.includes.vehicleform')
+                                @include('dash.includes.turmaform')
                             </div>
                             <button class="btn btn-outline-success btn-block" type="submit"> Salvar </button>
                         </form>
@@ -31,8 +31,8 @@
 @endsection
 @section('script')
     <script>
-        $('#placa').on('keydown', ()=>{
-            $('#placa').mask('AAA0000', {translation:{
+        $('#num_aluno').on('keydown', ()=>{
+            $('#num_aluno').mask('AAA0000', {translation:{
                 A:{pattern:/[A-Za-z]/}
             }});
         });

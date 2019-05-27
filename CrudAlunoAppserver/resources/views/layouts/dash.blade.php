@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Praticidade para rastrear seu veículo"/>
+        <meta name="description" content="Sistema feito para gerênciar Alunos"/>
         <meta name="theme-color" content="#000000"/>
         <title>{{config('app.name')}} - @yield('title', __('Dashboard'))</title>
         <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
