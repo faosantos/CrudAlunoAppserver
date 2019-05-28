@@ -7,7 +7,7 @@
         @if(array_key_exists('success', $_GET) && $_GET['success'] == 'true')
         <div class="my-2">
             <div class="alert alert-success">
-                Cliente editado com sucesso!
+                Aluno editado com sucesso!
             </div>
         </div>
         @endif
@@ -16,7 +16,8 @@
                 
                 <div class="card">
                     <div class="card-header">
-                        <label>aluno - {{$aluno->name}}</label>
+                        <i class="fas fa-graduation-cap"></i>
+                        <label>ALUNO - {{$aluno->name}}</label>
                     </div>
                     <div class="card-body">
                         <form method="post" action="/aluno/update/{{$aluno->id}}">
@@ -71,9 +72,9 @@
                             <div>
                                 <div class="form-group">
                                     @if($aluno->type == 't')
-                                    <label for="turno">manhã</label>
-                                    @else
                                     <label for="turno">Tarde</label>
+                                    @else
+                                    <label for="turno">Manhã</label>
                                     @endif
                                     <input 
                                         type="text"
@@ -117,10 +118,11 @@
                     </div>
                     <div class="card-body">
                         @forelse ($turmas as $item)
-                            <p>Identificação do aluno: <a href="/turma/{{$item->id}}">{{$item->num_aluno}}</a></p>
+                            <p>Número do aluno: <a href="/turma/{{$item->id}}">{{$item->num_aluno}}</a></p>
                         @empty
                             <p></p>
                         @endforelse
+                        <p>Adicionar turma</p>
                         <a href="/turma/add/{{$aluno->id}}" class="btn btn-outline-success">
                             <i class="fa fa-plus"></i>
                         </a>

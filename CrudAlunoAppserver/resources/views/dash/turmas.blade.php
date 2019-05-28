@@ -67,7 +67,7 @@
                                             {{-- <a href="/turma/{{$item->id}}">{{$item->equipment['chip_num']}}</a> --}}
                                         </td>
                                         <td>
-                                             {{$item->owner->turno}}
+                                             {{$item->owner->type== 't' ? 'Manhã' : 'Tarde'}}
                                         </td>
                                         <td class="dropdown">
                                             <button

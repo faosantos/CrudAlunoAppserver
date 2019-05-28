@@ -64,7 +64,7 @@
                                     <tr>
                                         <td title="{{$item->id}}"">{{$item->id}}</td>
                                         <td title="{{$item->name}}">
-                                            <a href="/client/{{$item->id}}">{{$item->name}}</a>
+                                            <a href="/aluno/{{$item->id}}">{{$item->name}}</a>
                                         </td>
                                         <td title="{{$item->phone_a}}">{{$item->phone_a}}</td>
                                         <td title="{{$item->address}}">{{$item->address}}</td>

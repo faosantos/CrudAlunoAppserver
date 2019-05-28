@@ -77,7 +77,7 @@ class AlunoController extends Controller
         $aluno->email = $request->email;
         $aluno->address = $request->address;
         // $aluno->turno = $request->turno;
-        $aluno->type = $request->type === 'Tarde' ? 'm' : 't';
+        $aluno->type = $request->type === 'Tarde' ? 't' : 'm';
         $success = $aluno->save();
 
         if($success){

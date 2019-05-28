@@ -21,6 +21,7 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
+                            <i class="fas fa-chalkboard-teacher"></i>
                             <span>Turma - {{$turma->turma}}</span>
                         </div>
                         <div class="card-body text-center">
