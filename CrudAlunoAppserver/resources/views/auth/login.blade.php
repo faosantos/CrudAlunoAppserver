@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 @section('content')
-@section('body-class', 'bg-dark')
+@section('body-class', 'bg-success')
 <div class="container">
     <div>
 		<div class="card card-login mx-auto mt-5">

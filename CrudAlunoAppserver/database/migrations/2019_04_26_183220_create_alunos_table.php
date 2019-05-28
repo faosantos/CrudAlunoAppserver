@@ -21,7 +21,7 @@ class CreateAlunosTable extends Migration
             $table->string('email', 191)->unique();
             $table->text('address');
             // $table->year('year');
-            $table->string('turno', 18);
+            // $table->string('turno', 18);
             // $table->enum('type', ['m', 't', 'n'])->default('m');
             $table->enum('type', ['m', 't']);
             $table->timestamps();

@@ -17,11 +17,11 @@
                         Tabela de alunos
                     </div>
                     <div>
-                        <a href="/client/add" class="btn btn-outline-success">
+                        <a href="/aluno/add" class="btn btn-outline-success">
                             <i class="fa fa-plus"></i>
                         </a>
                     </div>
-                    <form action="/search/client" method="POST" style="max-widht:150px;">
+                    <form action="/search/aluno" method="POST" style="max-widht:150px;">
                         <div class="input-group mb-3">
                             @csrf
                             <input placeholder="Buscar por..." name="name" type="text" class="form-control" aria-label="Buscar por...">
@@ -33,7 +33,6 @@
                         </div>
                     </form>
                 </div>
-
                 <div class="card-body">
                     @if(array_key_exists('success', $_GET) && $_GET['success'] == 'true')
                         <div class="my-2">
@@ -57,7 +56,6 @@
                                     <th>Telefone</th>
                                     <th>Endereço</th>
                                     <th>Turno</th>
-                                    <th>Tipo</th>
                                     <th>Opções</th>
                                 </tr>
                             </thead>
@@ -70,7 +68,6 @@
                                         </td>
                                         <td title="{{$item->phone_a}}">{{$item->phone_a}}</td>
                                         <td title="{{$item->address}}">{{$item->address}}</td>
-                                        <td title="{{$item->turno}}">{{$item->turno}}</td>
                                         <td title="{{$item->type()}}">{{$item->type()}}</td>
                                         <td class="dropdown">
                                             <button
@@ -91,7 +88,7 @@
                                                     <i class="far fa-trash-alt"></i>
                                                     Deletar
                                                 </button>
-                                                <a class="dropdown-item text-success" href="/veiculo/add/{{$item->id}}">
+                                                <a class="dropdown-item text-success" href="/aluno/add/{{$item->id}}">
                                                     <i class="fa fa-plus"></i>
                                                     Adicionar Turma
                                                 </a>

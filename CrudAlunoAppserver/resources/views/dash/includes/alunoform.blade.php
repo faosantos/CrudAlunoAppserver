@@ -46,10 +46,10 @@
 	@endif
 </div>
 <div class="form-group">
-	<label for="inputState">Tipo de pessoa <span style="color: red;">*</span></label>
+	<label for="inputState">Turno <span style="color: red;">*</span></label>
 	<select id="inputState" onchange="change(this)" name="type" class="form-control" required>
-		<option selected>Física</option>
-		<option>Jurídica</option>
+		<option selected>Manhã</option>
+		<option>Tarde</option>
 	</select>
 	@if($err && array_key_exists('type', $err))
 		@foreach($err['type'] as $item)
@@ -57,7 +57,7 @@
 		@endforeach
 	@endif
 </div>
-<div class="form-group">
+{{-- <div class="form-group">
 	<label for="turma"><span id="place">CPF</span> <span style="color: red;">*</span></label>
 	<input type="text" name="turma" required class="form-control" placeholder="manhã" id="turma">
 	@if($err && array_key_exists('turma', $err))
@@ -65,4 +65,4 @@
 			<small class="text-danger">{{$item}}</small>
 		@endforeach
 	@endif
-</div>
+</div> --}}

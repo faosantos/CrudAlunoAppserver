@@ -25,7 +25,7 @@ class AlunoController extends Controller
             'phone_a' => 'required',
             'email'=>'required|unique:alunos',
             'address'=>'required',
-            'turno'=>'required',
+            // 'turno'=>'required',
             'type' => 'required'
         ];
         $messages = [
@@ -43,7 +43,7 @@ class AlunoController extends Controller
             'phone_b' => $request->phone_b ? $request->phone_b : null,
             'email' => $request->email,
             'address' => $request->address,
-            'turno' => $request->cpf_rg,
+            // 'turno' => $request->cpf_rg,
             'type' => $request->type === 'Tarde' ? 'm' : 't'
         ];
         $user = Aluno::create($user);
@@ -76,7 +76,7 @@ class AlunoController extends Controller
         $aluno->phone_b = $request->phone_b;
         $aluno->email = $request->email;
         $aluno->address = $request->address;
-        $aluno->turno = $request->turno;
+        // $aluno->turno = $request->turno;
         $aluno->type = $request->type === 'Tarde' ? 'm' : 't';
         $success = $aluno->save();
 

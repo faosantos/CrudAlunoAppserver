@@ -77,10 +77,10 @@
                                     @endif
                                     <input 
                                         type="text"
-                                        id="turno"
-                                        name="turno"
+                                        id="type"
+                                        name="type"
                                         class="form-control"
-                                        value="{{$aluno->turno}}"
+                                        value="{{$aluno->type}}"
                                         required
                                     />
                                 </div>

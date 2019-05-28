@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="card ml-auto mr-auto mb-3">
-                    <div class="card-header"> Adicionar Cliente </div>
+                    <div class="card-header"> Adicionar Aluno </div>
                     <div class="card-body">
                         <form method="POST" action="/aluno/add">
                             @csrf
