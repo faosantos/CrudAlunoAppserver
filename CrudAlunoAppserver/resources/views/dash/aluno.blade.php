@@ -48,8 +48,8 @@
                         </div>
                     @endif
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
+                        <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+                        <thead class="thead-dark">
                                 <tr>
                                     <th>ID</th>
                                     <th>Nome</th>
@@ -75,7 +75,7 @@
                                                 data-toggle="dropdown"
                                                 aria-haspopup="true"
                                                 aria-expanded="false"
-                                                class="btn btn-outline-info dropdown-toggle"
+                                                class="btn btn-outline-dark dropdown-toggle"
                                             >
                                                 <i class="fa fa-user-cog"></i>
                                             </button>
