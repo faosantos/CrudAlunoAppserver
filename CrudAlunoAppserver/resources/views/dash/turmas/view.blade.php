@@ -21,7 +21,7 @@
                     @endif
                     <div class="card">
                         <div class="card-header">
-                            <span>Turma - {{$turma->num_aluno}}</span>
+                            <span>Turma - {{$turma->turma}}</span>
                         </div>
                         <div class="card-body text-center">
                             {{-- <i 
@@ -58,7 +58,7 @@
                                     <i class="fa fa-trash"></i>
                                     Deletar turma
                                 </button>
-                                <a href="/editar-veiculo/{{$turma->id}}" class="mr-auto btn btn-outline-warning">
+                                <a href="/editar-turma/{{$turma->id}}" class="mr-auto btn btn-outline-warning">
                                     <i class="fa fa-edit"></i>
                                     Editar turma
                                 </a>
@@ -66,8 +66,8 @@
                         </div>
                         <div class="card-footer"></div>
                     </div>
-                    {{-- <div class="my-3">
-                        @if($equipment)
+                    <div class="my-3">
+                        {{-- @if($equipment)
                             <div class="card">
                                 <div class="card-header">
                                     Equipamento
@@ -89,12 +89,12 @@
                                 <i class="fa fa-plus"></i>
                                 Adicionar equipamento
                             </a>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <footer class="sticky-footer">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">

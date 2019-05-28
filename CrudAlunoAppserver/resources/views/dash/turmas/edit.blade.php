@@ -62,8 +62,8 @@
                                             <small class="text-danger">{{$item}}</small>
                                         @endforeach
                                     @endif
-                                </div> --}}
-                                {{-- <div class="form-group">
+                                </div>
+                                <div class="form-group">
                                     <label for="year">Ano<span style="color: red;">*</span></label>
                                     <input value="{{$vehicle->year}}" type="text" maxlength="4" class="form-control" required name="year" id="year" placeholder="Digite o ano do veículo">
                                     @if($err && array_key_exists('year', $err))
@@ -93,12 +93,12 @@
                                             <small class="text-danger">{{$item}}</small>
                                         @endforeach
                                     @endif
-                                </div>
-                            </div> --}}
+                                </div> --}}
+                            </div> 
 
-                            //parte referente ao equipamento
-                            {{-- <div class="col-sm-6 col-md-6">
-                                <div class="form-group">
+                             {{-- parte referente ao equipamento  --}}
+                            <div class="col-sm-6 col-md-6">
+                                {{-- <div class="form-group">
                                     <label for="serial_num">Número de série do equipamento<span style="color: red;">*</span></label>
                                     <input value="{{$equipment->serial_num}}" type="text" class="form-control" name="serial_num" id="serial_num"  placeholder="Digite o número de serie do equipamento">
                                     @if($err && array_key_exists('serial_num', $err))
@@ -152,8 +152,8 @@
                                         @endforeach
                                     @endif
                                 </div>
-                            </div>
-                        </div> --}}
+                            </div> --}}
+                        </div>
                         <button type="submit" class="btn btn-outline-success btn-block">
                             <i class="fa fa-edit"></i>
                             Confirmar

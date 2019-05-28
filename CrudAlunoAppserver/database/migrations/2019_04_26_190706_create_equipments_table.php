@@ -20,7 +20,7 @@ class CreateEquipmentsTable extends Migration
             $table->string('chip_num', 30); // iccid
             $table->string('phone_num', 15);
             $table->string('apn');
-            $table->string('client_id');
+            $table->string('aluno_id');
             $table->string('operator');
             $table->unsignedInteger('turma_id');
             $table->timestamps();

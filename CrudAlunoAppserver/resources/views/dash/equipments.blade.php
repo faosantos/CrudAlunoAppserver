@@ -29,7 +29,7 @@
                                 @empty
                                     <tr>
                                         <td colspan="7">
-                                            <span>Nenhum cliente encontrado</span>
+                                            <span>Nenhum aluno encontrado</span>
                                         </td>
                                     </tr>
                             @endforelse

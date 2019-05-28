@@ -10,6 +10,6 @@ class Equipments extends Model
     protected $fillable = [
         'serial_num', 'model', 'chip_num',
         'phone_num', 'operator', 'apn',
-        'vehicle_id', 'client_id'
+        'turma_id', 'aluno_id'
     ];
 }

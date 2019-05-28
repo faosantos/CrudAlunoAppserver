@@ -15,7 +15,7 @@
                         <i class="fas fa-table"></i>
                         Tabela de Turmas
                     </div>
-                    <form action="/search/vehicle" method="POST" style="max-widht:150px;">
+                    <form action="/search/turma" method="POST" style="max-widht:150px;">
                         <div class="input-group mb-3">
                             @csrf
                             <input placeholder="Buscar por..." name="name" type="text" class="form-control" aria-label="Buscar por...">
@@ -51,6 +51,7 @@
                                     <th>Turma</th>
                                     <th>Série</th>
                                     <th>Aluno</th>
+                                    <th>Turno</th>
                                     <th>Opções</th>
                                 </tr>
                             </thead>
@@ -62,10 +63,11 @@
                                         <td>{{$item->turma}}</td>
                                         <td>{{$item->serie}}</td>
                                         <td>
-                                            <a href="/turma/{{$item->id}}">{{$item->equipment['chip_num']}}</a>
+                                            <a href="/aluno/{{$item->owner->id}}">{{$item->owner->name}}</a>
+                                            {{-- <a href="/turma/{{$item->id}}">{{$item->equipment['chip_num']}}</a> --}}
                                         </td>
                                         <td>
-                                            <a href="/aluno/{{$item->owner->id}}">{{$item->owner->name}}</a>
+                                             {{$item->owner->turno}}
                                         </td>
                                         <td class="dropdown">
                                             <button

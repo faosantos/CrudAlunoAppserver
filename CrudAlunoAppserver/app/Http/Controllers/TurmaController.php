@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Equipments;
 use Auth;
 
-class VehicleController extends Controller
+class TurmaController extends Controller
 {
     public function destroy($id)
     {

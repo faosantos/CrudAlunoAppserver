@@ -12,7 +12,7 @@
                     <div class="card mb-3">
                         <div class="card-header"> Adicionar Equipamento </div>
                         <div class="card-body">
-                            <form method="POST" action="/equipamento/{{$vehicle_id}}">
+                            <form method="POST" action="/equipamento/{{$turma_id}}">
                                 @csrf
                                 <div class="row">
                                     @include('dash.includes.equipmentform')

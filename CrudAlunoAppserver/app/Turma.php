@@ -15,6 +15,6 @@ class Turma extends Model
         return $this->belongsTo('App\Aluno', 'aluno_id', 'id');
     }
     public function equipments(){
-        return $this->hasOne('App\Equipments', 'tuma_id', 'id');
+        return $this->hasOne('App\Equipments', 'turma_id', 'id');
     }
 }
